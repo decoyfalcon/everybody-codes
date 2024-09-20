@@ -1,5 +1,6 @@
 <?php
-function laadCameras() {
+function laadCameras()
+{
     $cameras = [];
     if (($handle = fopen("data/cameras-defb.csv", "r")) !== false) {
         while (($data = fgetcsv($handle, 100, ";")) !== false) {
@@ -29,14 +30,15 @@ function laadCameras() {
     return $cameras;
 }
 
-
-function zoekCameras($cameras, $name) {
-    return array_filter($cameras, function($camera) use ($name) {
+function zoekCameras($cameras, $name)
+{
+    return array_filter($cameras, function ($camera) use ($name) {
         return stripos($camera['naam'], $name) !== false;
     });
 }
 
-function main() {
+function main()
+{
     $options = getopt("", ["name:"]);
 
     if (!isset($options['name'])) {
