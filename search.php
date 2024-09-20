@@ -36,7 +36,6 @@ function zoekCameras($cameras, $name) {
     });
 }
 
-// Hoofdfunctie
 function main() {
     $options = getopt("", ["name:"]);
 
